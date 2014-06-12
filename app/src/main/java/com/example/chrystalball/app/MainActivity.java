@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.Button;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -18,6 +20,18 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Declare View Variables
+        final TextView answerLabel = (TextView) findViewById(R.id.textView1);
+        Button getAnswerButton = (Button) findViewById(R.id.button1);
+
+        getAnswerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String answer = "Yes";
+                answerLabel.setText(answer);
+            }
+        });
     }
 
 
