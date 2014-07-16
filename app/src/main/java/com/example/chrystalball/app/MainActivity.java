@@ -13,6 +13,8 @@ import android.os.Build;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Random;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -28,13 +30,30 @@ public class MainActivity extends ActionBarActivity {
         getAnswerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String answer = "Yes";
+                String answer = "";
+
+                // Randomly select one of the three answers: Yes, No, or Maybe
+                Random randomGenerator = new Random();
+                int randomNumber = randomGenerator.nextInt(3);
+
+                if (randomNumber == 0) {
+                    answer = "Yes";
+                }
+                else if(randomNumber == 1) {
+                    answer = "No";
+                }
+                else if(randomNumber == 2){
+                    answer = "Maybe";
+                }
+                else {
+                    answer = "Sorry, there was an error with your destiny!";
+                }
+
+                //Update the label with our dynamic string
                 answerLabel.setText(answer);
             }
         });
     }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
